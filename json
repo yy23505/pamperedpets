@@ -1,0 +1,36 @@
+import json
+import networkx as nx
+import matplotlib.pyplot as plt
+
+class AttackTree:
+    def __init__(self, json_data):
+        self.json_data = json_data
+        self.graph = nx.DiGraph()
+
+    def parse_json(self):
+        nodes = self.json_data["nodes"]
+        for node in nodes:
+            self.graph.add_node(node["id"], type=node["type"], value=node["value"])
+            if node["type"] != "LEAF":
+                for child in node["children"]:
+                    self.graph.add_edge(node["id"], child)
+
+    def visualize(self):
+        pos = nx.spring_layout(self.graph)
+        nx.draw_networkx(self.graph, pos, with_labels=True, node_color="lightblue")
+        plt.show()
+
+    def calculate_threat_assessment(self):
+        # TO DO: implement the logic to aggregate values and calculate the overall threat assessment rating
+        pass
+
+def main():
+    with open("attack_tree.json", "r") as f:
+        json_data = json.load(f)
+
+    attack_tree = AttackTree(json_data)
+    attack_tree.parse_json()
+    attack_tree.visualize()
+
+if __name__ == "__main__":
+    main()
