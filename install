@@ -1,0 +1,30 @@
+Step 1: Install the Required Libraries
+Install the required libraries using pip, the Python package manager. Open a terminal or command prompt and run the following commands:
+
+pip install json
+pip install networkx
+pip install matplotlib
+
+Step 2: Create the Attack Tree JSON Files
+
+Create two separate JSON files: original_system.json and digitalised_system.json. These files will contain the attack tree specifications for the original system and the system after digitalisation steps have been applied, respectively.
+
+Step 3: Create the Python Application
+
+Create a new Python file, e.g., attack_tree_app.py, and add the code provided earlier.
+
+Step 4: Run the Python Application
+
+Run the Python application using the following command:
+
+python attack_tree_app.py
+
+This will parse the JSON data, create a graph representation of the attack tree, and visualize the graph using matplotlib.
+
+Step 5: Implement the Logic to Calculate the Overall Threat Assessment Rating
+
+Implement the logic to aggregate values and calculate the overall threat assessment rating in the calculate_threat_assessment_rating method. Then, uncomment the line attack_tree.calculate_threat_assessment_rating() to run the calculation.
+
+Step 6: Run the Application Again
+
+Run the Python application again to see the results of the threat assessment rating calculation.
